@@ -1,0 +1,22 @@
+{% ckan_extends %}
+
+{% block footer_content %}
+<div class="row">
+  <div class="col-md-1 footer-links">
+      <ul class="list-unstyled">
+		  <li><a href="{{ h.url_for(controller='home', action='about') }}">{{ _('About') }}</a></li>
+		  <li><a href="{{ h.url_for('dcor_theme.contact') }}">{{ _('Contact') }}</a></li>
+      </ul>
+  </div>
+  <div class="col-md-9 footer-links">
+      <ul class="list-unstyled">
+		  <li><a href="{{ h.url_for('dcor_theme.imprint') }}">{{ _('Imprint') }}</a></li>
+		  <li><a href="{{ h.url_for('dcor_theme.privacy') }}">{{ _('Privacy') }}</a></li>
+      </ul>
+  </div>
+  <div class="col-md-2 attribution">
+      <p>{% trans %}<strong>Powered by</strong> <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>{% endtrans %}</p>
+  </div>
+</div>
+{% endblock %}
+

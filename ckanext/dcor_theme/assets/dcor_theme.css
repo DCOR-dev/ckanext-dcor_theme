@@ -1,0 +1,119 @@
+/* Remove marging so that the menu looks aligned on mobile devices */
+.nav-pills > li + li {
+    margin-left: 0px;
+}
+
+/* Make docs menu entry look like rtd */
+a.rtdmenu {
+    background-color:rgba(41, 128, 185, .4)
+}
+
+/* Set global font */
+body {
+    font-family: "Lato";
+    background-color: #163868;
+    background: #163868 url("../../../base/images/bg.png");
+}
+
+/* The "account masthead" bar across the top of the site */
+.account-masthead {
+    background-color: #163868;
+    background: #163868 url("../../../base/images/bg.png");
+}
+
+.account-masthead .account ul li a:hover {
+    background-color: #194484;
+}
+
+/* Make register link as large as regular link */
+.account-masthead .account ul li a.sub {
+  font-weight: 700;
+}
+
+/* The "masterhead" at the top of the site */
+.masthead {
+    background-color: #163868;
+    background: #163868 url("../../../base/images/bg.png");
+}
+
+.masthead .navigation .nav-pills li a:hover,
+.masthead .navigation .nav-pills li a:focus,
+.masthead .navigation .nav-pills li.active a {
+    background-color: #194484;
+}
+
+.fa.fa-external-link-square {
+	font-size: 7pt;
+	vertical-align: top;
+	margin-left: 1pt;
+}
+
+
+/* Site Footer */
+.site-footer {
+    background-color: #163868;
+    background: #163868 url("../../../base/images/bg.png");
+}
+
+
+/* Remove thick border around main content */
+.wrapper {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons */
+.btn-primary {
+    color: #fff;
+    background-color: #163868;
+    border-color: #1f4d8d;
+}
+
+
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #194484;
+  border-color: #1f4d8d;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #194484;
+  border-color: #1f4d8d;
+}
+
+/* link color */
+a {
+    color: #204282;
+}
+
+/* page numbers */
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #194484;
+  border-color: #1f4d8d;
+}
+
+.pagination > li > a {
+  color: #194484;
+}
+
+/* Override the default font-awesome icon for dataset */
+.fa.fa-sitemap:before {
+  content: "\f114";
+}
+
+/* Override the CUSTOM font-awesome icon for group/collections
+(The default font-awesome icon is "users")
+*/
+.fa.fa-group:before {
+  content: "\f12e";
+}
+
+/* Override the default font-awesome icon for organization/circle */
+.fa.fa-building-o:before {
+  content: "\f17d";
+}

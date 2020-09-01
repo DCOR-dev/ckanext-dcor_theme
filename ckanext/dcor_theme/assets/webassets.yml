@@ -1,0 +1,7 @@
+dcor_theme:
+  contents:
+    - dcor_theme.css
+hide_action_buttons:
+  contents:
+    - hide_action_buttons.css
+

@@ -1,5 +1,6 @@
 dcor_theme:
   contents:
+    - dcor_theme_colors.css
     - dcor_theme.css
 hide_action_buttons:
   contents:

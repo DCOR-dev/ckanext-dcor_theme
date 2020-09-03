@@ -28,6 +28,7 @@ Installation
 Edit ckan.ini
 ```
 ckan.plugins = [...] dcor_theme
+ckan.favicon = /base/images/favicon.ico
 ```
 and run the dcor-i18n-hack command above.
 

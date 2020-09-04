@@ -5437,6 +5437,10 @@ button.close
 
 a.tag:hover
 {
+  background-color: #3366ac;
+  border: 1px solid #264c82;
+  -webkit-box-shadow: inset 0 1px 0 #315484;
+  box-shadow: inset 0 1px 0 #315484;
 }
 
 .pill

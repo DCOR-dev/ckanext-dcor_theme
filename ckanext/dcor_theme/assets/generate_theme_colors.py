@@ -19,6 +19,9 @@ color_map = {
     "#0f323c": "#1f4d8d",  # btn-primary hover border
     "#113845": "#194484",  # pagination active
     "#647A82": "#5D7597",  # nav-item active (resources list in dataset)
+    "#30778d": "#3366ac",  # a.tag hover
+    "#235767": "#264c82",  # a.tag hover border
+    "#3d97b3": "#315484", # a.tag hover shadow
 }
 
 

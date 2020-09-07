@@ -3,8 +3,9 @@ import pathlib
 import pkg_resources
 import shutil
 import subprocess
-import babel.messages.pofile
+import time
 
+import babel.messages.pofile
 import ckan
 import click
 
@@ -52,24 +53,15 @@ def dcor_i18n_hack():
     # file structure
     dest = src.parent / "en_US" / "LC_MESSAGES" / "ckan.po"
     # create parent directories
-    parents = list(dest.parents)
-    parents.reverse()
-    for pp in parents:
-        if not pp.exists():
-            pp.mkdir()
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    # write .po file for en_US
     with dest.open("wb") as fd:
         babel.messages.pofile.write_po(fd, poin)
-
     with dest.open("rb") as fd:
         data = fd.readlines()
     data.insert(10, b'"Plural-Forms: nplurals=2; plural=(n != 1);\\n"\n')
     with dest.open("wb") as fd:
         data = fd.writelines(data)
-
-    # for some reason we also need this .js file:
-    sjs = pathlib.Path(
-        pkg_resources.resource_filename("ckan", "public/base/i18n/en_GB.js"))
-    shutil.copy(str(sjs), str(sjs.with_name("en_US.js")))
 
     # Readup:
     # https://docs.ckan.org/en/2.8/maintaining/configuration.html#config-i18n
@@ -80,6 +72,14 @@ def dcor_i18n_hack():
     subprocess.check_output(
         "python setup.py compile_catalog --locale en_US --use-fuzzy",
         shell=True)
+
+    # For some reason we also need this .js file and it has to be older
+    # than the .po file, otherwise CKAN will try to generate it, which
+    # may fail due to file access restrictions.
+    time.sleep(1)
+    sjs = pathlib.Path(
+        pkg_resources.resource_filename("ckan", "public/base/i18n/en_GB.js"))
+    shutil.copy(str(sjs), str(sjs.with_name("en_US.js")))
 
     print("Make sure to set 'ckan.locale' and 'ckan.locales_offered' to "
           + "'en_US' in your CKAN config.")

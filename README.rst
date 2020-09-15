@@ -27,14 +27,15 @@ Installation
 
 Edit ckan.ini
 
-```
-ckan.plugins = [...] dcor_theme
-ckan.favicon = /base/images/favicon.ico
-```
+::
+    
+    ckan.plugins = [...] dcor_theme
+    ckan.favicon = /base/images/favicon.ico
 
 and run the dcor-i18n-hack command above.
 
 Then, edit ckan.ini again:
-```
-ckan.locale_default = en_US
-```
+
+::
+
+    ckan.locale_default = en_US

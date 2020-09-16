@@ -2,4 +2,4 @@ include README.rst
 include LICENSE
 include CHANGELOG
 include requirements.txt
-recursive-include ckanext/dcor_theme *.html *.json *.js *.less *.css *.mo
+recursive-include ckanext/dcor_theme *.html *.json *.js *.less *.css *.mo *.yml *.png *.ico

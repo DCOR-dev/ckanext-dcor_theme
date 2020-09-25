@@ -1,3 +1,6 @@
+0.3.4
+ - fix: do not use a brand icon for Circles
+ - ref: use solid icons
 0.3.3
  - fix: manifest did not include artwork
 0.3.2

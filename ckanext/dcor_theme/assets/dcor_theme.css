@@ -51,19 +51,24 @@ a.tag, a.tag:hover{
   }
 }
 
-/* Override the default font-awesome icon for dataset */
+/* Override the default font-awesome icon for dataset
+folder
+*/
 .fa.fa-sitemap:before {
-  content: "\f114";
+  content: "\f07b";
 }
 
 /* Override the CUSTOM font-awesome icon for group/collections
 (The default font-awesome icon is "users")
+puzzle-piece
 */
 .fa.fa-group:before {
   content: "\f12e";
 }
 
-/* Override the default font-awesome icon for organization/circle */
+/* Override the default font-awesome icon for organization/circle
+circle
+*/
 .fa.fa-building-o:before {
-  content: "\f17d";
+  content: "\f111";
 }

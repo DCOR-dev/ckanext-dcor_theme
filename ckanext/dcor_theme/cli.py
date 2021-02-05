@@ -1,3 +1,4 @@
+from collections import OrderedDict
 import os
 import pathlib
 import pkg_resources
@@ -10,14 +11,16 @@ import ckan
 import click
 
 
-branding = {
-    "group": "collection",
-    "Group": "Collection",
-    "organization": "circle",
-    "Organization": "Circle",
-    "an organization": "a circle",
-    "an Organization": "a Circle",
-}
+branding = OrderedDict()
+branding["group"] = "collection"
+branding["Group"] = "Collection"
+branding["an organization"] = "a circle"
+branding["an Organization"] = "a Circle"
+branding["An organization"] = "A circle"
+branding["An Organization"] = "A Circle"
+branding["organization"] = "circle"
+branding["Organization"] = "Circle"
+
 
 preserve = [
     "{organization}",

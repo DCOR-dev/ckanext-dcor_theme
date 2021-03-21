@@ -20,7 +20,6 @@ class DCORThemePlugin(p.SingletonPlugin):
         # Add plugin url rules to Blueprint object
         rules = [
             ('/contact', 'contact', lambda: render_template('contact.html')),
-            ('/help', 'help', lambda: render_template('help.html')),
             ('/imprint', 'imprint', lambda: render_template('imprint.html')),
             ('/privacy', 'privacy', lambda: render_template('privacy.html')),
         ]

@@ -1,4 +1,5 @@
-0.3.10
+0.4.0
+ - ref: moved branding to dcor_control
  - tests: use vagrant for tests
 0.3.9
  - fix: i18-hack did not work properly

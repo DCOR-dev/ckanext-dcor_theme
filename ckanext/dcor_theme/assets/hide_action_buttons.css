@@ -2,5 +2,5 @@
 Do not show the action buttons (Fullscreen, Embed) in resource view.
 */
 .resource-view .actions {
- display:none;
+ display: none;
 }

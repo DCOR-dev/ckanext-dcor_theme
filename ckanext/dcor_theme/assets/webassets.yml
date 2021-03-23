@@ -6,4 +6,3 @@ dcor_theme:
 hide_action_buttons:
   contents:
     - hide_action_buttons.css
-

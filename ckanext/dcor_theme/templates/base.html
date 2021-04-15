@@ -1,5 +1,14 @@
 {% ckan_extends %}
 
+{% block meta %}
+  {{ super() }}
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <link rel="apple-touch-icon" href="/images/dcor-076.png" sizes="76x76"/>
+        <link rel="apple-touch-icon" href="/images/dcor-096.png" sizes="96x96"/>
+        <link rel="apple-touch-icon" href="/images/dcor-152.png" sizes="152x152"/>
+        <link rel="apple-touch-icon" href="/images/dcor-180.png" sizes="180x180"/>
+{% endblock %}
+
 {% block styles %}
   {{ super() }}
   {% asset 'dcor_theme/dcor_theme' %}

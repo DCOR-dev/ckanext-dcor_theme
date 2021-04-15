@@ -1,4 +1,5 @@
 0.4.3
+ - enh: add apple-touch-icon images
  - ci: fix coverage stats
 0.4.2
  - maintenance release

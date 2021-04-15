@@ -1,5 +1,5 @@
 inkscape favicon.svg -e favicon.png -w 32
-icotool -c favicon.ico favicon.png
+icotool -c -o favicon.ico favicon.png
 mkdir -p images
 inkscape favicon.svg -e images/dcor-076.png -w 76
 inkscape favicon.svg -e images/dcor-096.png -w 96

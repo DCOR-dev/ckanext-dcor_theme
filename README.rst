@@ -9,15 +9,18 @@ The CKAN theme of DCOR. What this plugin does:
 - remove links from footer.html
 - set the title of the page to "DCOR"
 - insert a custom about text
-- hide action buttons (Fullscreen, Embed) in resource view via css
 - remove social media buttons
-- change colors / icons / logo
+- change icons / logo
 - use i18n to change the terms "Organization" -> "Circle",
-  "Group" -> "Collection", etc.
+  "Group" -> "Collection", etc.::
 
-  .. code::
+     ckan dcor-theme-i18n-branding
 
-     ckan -c /etc/ckan/default/ckan.ini dcor-i18n-hack
+- create a new version of the main.css file using
+  (hide action buttons (Fullscreen, Embed) in resource view via css,
+  change colors)::
+
+    ckan dcor-theme-main-css-branding
 
 
 Installation

@@ -24,7 +24,6 @@ body {
 	margin-left: 1pt;
 }
 
-
 /* Remove thick border around main content */
 .wrapper {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.05);
@@ -35,20 +34,12 @@ a.tag, a.tag:hover{
   box-shadow: inset 0 0px 0 #315484
 }
 
-/* Additional color tweaks overriding things in dcor_theme_colors.css */
+/* Additional color tweaks overriding things in main.css */
 .masthead .navigation .nav-pills li a:hover,
 .masthead .navigation .nav-pills li a:focus,
 .masthead .navigation .nav-pills li.active a
 {
   background-color: #194484;
-}
-
-/* Could not pick that up with thinycss */
-@media (min-width: 768px) {
-  .nav-item.active > a:before,
-  .nav-aside li.active a:before {
-    border-left-color: #5D7597;  /* #647A82 */
-  }
 }
 
 /* Override the default font-awesome icon for dataset

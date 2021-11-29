@@ -2,75 +2,25 @@
 
 
 {# Note: ckanext-dcor_scheme also extends this page #}
-
-
-{# Set the correct download name (HTML5 field download) #}
-
-    {% block resource_actions_inner %}
-    {% if h.check_access('package_update', {'id':pkg.id }) and not is_activity_archive %}
-         <li>{% link_for _('Manage'), named_route=pkg.type ~ '_resource.edit', id=pkg.name, resource_id=res.id, class_='btn btn-default', icon='wrench' %}</li>
-    {% endif %}
-    {% if res.url and h.is_url(res.url) %}
-      <li>
-        <div class="btn-group">
-        <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}" download="{{ res.name }}">
-          {% if res.resource_type in ('listing', 'service') %}
-            <i class="fa fa-eye"></i> {{ _('View') }}
-          {% elif  res.resource_type == 'api' %}
-            <i class="fa fa-key"></i> {{ _('API Endpoint') }}
-          {% elif not res.has_views and not res.url_type == 'upload' %}
-            <i class="fa fa-external-link"></i> {{ _('Go to resource') }}
-          {% else %}
-            <i class="fa fa-angle-down"></i> {{ _('Download') }}
-          {% endif %}
-        </a>
-
-   {# Download Condensed button #} 
-        
-    {% if res.mimetype == "RT-DC" %}   
-        <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url.rsplit('/', 2)[0]}}/condensed.rtdc" download="{{ res.name.rsplit('.', 1)[0]}}_condensed.rtdc" title="Smaller file containing only (but all possible) scalar features">
-        <i class="fa fa-angle-double-down"></i> {{ _('Download Condensed') }}
-        </a>
-    {% endif %}
-
-        {% block download_resource_button %}
-          {% if res.datastore_active %}
-        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-          </button>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="{{ h.url_for('datastore.dump', resource_id=res.id, bom=True) }}"
-              target="_blank"><span>CSV</span></a>
-            <a href="{{ h.url_for('datastore.dump', resource_id=res.id, format='tsv', bom=True) }}"
-              target="_blank"><span>TSV</span></a>
-            <a href="{{ h.url_for('datastore.dump', resource_id=res.id, format='json') }}"
-              target="_blank"><span>JSON</span></a>
-            <a href="{{ h.url_for('datastore.dump', resource_id=res.id, format='xml') }}"
-              target="_blank"><span>XML</span></a>
-          </li>
-        </ul>
-          {% endif %}
-        {% endblock %}
-        </div>
-      </li>
-    {% endif %}
-    {% endblock %}
-
+{# Note: ckanext-dc_serve also extends this page #}
 
 
     {% block resource_content %}
+
+      {% block package_archive_notice %}
+      {% endblock %}
+
+      {% block resource_read_title %}<h1 class="page-heading">{{ h.resource_display_name(res) | truncate(50) }}</h1>
+      {% endblock %}
     
-      {% block resource_read_title %}<h1 class="page-heading">{{ h.resource_display_name(res) | truncate(50) }}</h1>{% endblock %}
-    
-        {% block resource_read_url %}
-        {% endblock %}
-    
-        {# Do not show dataset abstract if resource has no description #}
-          <div class="prose notes" property="rdfs:label">
-            {% if res.description %}
-              {{ h.render_markdown(res.description) }}
-            {% endif %}
-          </div>
+      {% block resource_read_url %}
+      {% endblock %}
+
+      {# Do not show dataset abstract if resource has no description #}
+      <div class="prose notes" property="rdfs:label">
+        {% if res.description %}
+          {{ h.render_markdown(res.description) }}
+        {% endif %}
+      </div>
+
     {% endblock %}
-    

@@ -1,6 +1,7 @@
 0.6.0
  - enh: instead of relying on old libraries, just cat all css and
    serve it as main.css (#2)
+ - ref: move condensed download buttons to ckanext-dc-serve
 0.5.0
  - fix: don't show "Users" page link when user not logged-in (#3)
 0.4.6

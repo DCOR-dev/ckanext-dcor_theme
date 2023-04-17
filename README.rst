@@ -67,7 +67,7 @@ following commands in the root of this repository:
 
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/ckanext.dcor_theme.svg
    :target: https://pypi.python.org/pypi/ckanext.dcor_theme
-.. |Build Status| image:: https://img.shields.io/github/workflow/status/DCOR-dev/ckanext-dcor_theme/Checks
+.. |Build Status| image:: https://img.shields.io/github/actions/workflow/status/DCOR-dev/ckanext-dcor_theme/check.yml
    :target: https://github.com/DCOR-dev/ckanext-dcor_theme/actions?query=workflow%3AChecks
 .. |Coverage Status| image:: https://img.shields.io/codecov/c/github/DCOR-dev/ckanext-dcor_theme
    :target: https://codecov.io/gh/DCOR-dev/ckanext-dcor_theme

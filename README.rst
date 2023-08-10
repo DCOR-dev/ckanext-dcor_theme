@@ -16,9 +16,9 @@ The CKAN theme of DCOR. What this plugin does:
 
      ckan dcor-theme-i18n-branding
 
-- create a new version of the main.css file using
+- create a new version of the main.css file
   (hide action buttons (Fullscreen, Embed) in resource view via css,
-  change colors)::
+  change colors) using::
 
     ckan dcor-theme-main-css-branding
 

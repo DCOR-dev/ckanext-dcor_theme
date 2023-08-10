@@ -24,22 +24,13 @@ color_map = {
 
 
 def main():
-    # Notes:
-    # - We have to edit webassets.yml: https://github.com/ckan/ckan/issues/6563
-    # - We cannot use our own location, we have to use the same.
-
-    # https://github.com/ckan/ckan/issues/6563
-    webassets_path = ckan_css_path.with_name("webassets.yml")
-    webassets_text = webassets_path.read_text()
-    if not webassets_text.count("dcor_main"):
-        webassets_text += "dcor_main:\n" \
-                          + "  filters: cssrewrite\n" \
-                          + "  output: base/%(version)s_dcor_main.css\n" \
-                          + "  contents: dcor_main.css\n"
-    webassets_path.write_text(webassets_text)
-
-    dcor_css_path = ckan_css_path.with_name("dcor_main.css")
     here = pathlib.Path(__file__).parent
+    # The webassets_dcor.yml file is already present in the public/base/css
+    # directory (https://github.com/ckan/ckan/pull/6817).
+    base_css = here.parent / "public" / "base" / "css"
+
+    # Create a patched CSS file with the colors replaced.
+    dcor_css_path = base_css / "dcor_main.css"
 
     # replace colors
     main_css_data = ckan_css_path.read_text()
@@ -53,7 +44,7 @@ def main():
 
     dcor_css_path.write_text(main_css_data)
 
-    print("Make sure to set 'ckan.main_css=/base/css/dcor_main.css' "
+    print("Make sure to set 'ckan.theme=/base/css/webassets_dcor.yml' "
           + "in the CKAN ini config!")
 
 

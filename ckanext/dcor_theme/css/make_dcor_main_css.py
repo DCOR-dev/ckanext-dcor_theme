@@ -44,7 +44,7 @@ def main():
 
     dcor_css_path.write_text(main_css_data)
 
-    print("Make sure to set 'ckan.theme=dcor_theme_main' "
+    print("Make sure to set 'ckan.theme=dcor_theme_main/dcor_theme_main' "
           + "in the CKAN ini config!")
 
 

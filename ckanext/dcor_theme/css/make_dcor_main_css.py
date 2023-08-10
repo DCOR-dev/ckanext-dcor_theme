@@ -27,7 +27,7 @@ def main():
     here = pathlib.Path(__file__).parent
     # The webassets_dcor.yml file is already present in the public/base/css
     # directory (https://github.com/ckan/ckan/pull/6817).
-    base_css = here.parent / "public" / "base" / "css"
+    base_css = here.parent / "assets_theme"
 
     # Create a patched CSS file with the colors replaced.
     dcor_css_path = base_css / "dcor_main.css"
@@ -44,7 +44,7 @@ def main():
 
     dcor_css_path.write_text(main_css_data)
 
-    print("Make sure to set 'ckan.theme=/base/css/webassets_dcor.yml' "
+    print("Make sure to set 'ckan.theme=dcor_theme_main' "
           + "in the CKAN ini config!")
 
 

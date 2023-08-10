@@ -1,4 +1,0 @@
-main:
-  filters: cssrewrite
-  output: base/%(version)s_dcor_main.css
-  contents: dcor_main.css

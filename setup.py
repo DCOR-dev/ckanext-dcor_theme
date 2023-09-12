@@ -22,7 +22,7 @@ try:
             f"Your CKAN version {ckan_version} is not supported! If you "
             f"are still on CKAN 2.9.5, then the following package versions "
             f"are supported:"
-            f"\n ckanext-dcor_theme<=0.7.0"
+            f"\n ckanext-dcor_theme<=0.6.1"
             )
 except ImportError:
     warnings.warn("CKAN not installed, supported version check skipped.")

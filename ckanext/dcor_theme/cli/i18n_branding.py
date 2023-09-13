@@ -23,9 +23,9 @@ branding["Organization"] = "Circle"
 
 
 preserve = [
+    "organization_",
     "{organization}",
-    "organization_name",
-    "group_name",
+    "group_",
     "{group}",
 ]
 

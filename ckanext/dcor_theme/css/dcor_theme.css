@@ -81,3 +81,8 @@ body {
   /* Set the fixed height of the footer here */
   height: 100px;
 }
+
+/* Make cells flowing the default background image everywhere */
+html {
+    background: #eee url("../../base/images/bg.png")
+}

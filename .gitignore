@@ -45,3 +45,4 @@ docs/_build/
 ckanext/dcor_theme/public/favicon.ico
 
 .idea
+.vagrant

@@ -27,7 +27,7 @@ color_map = {
 
 
 def main():
-    here = pathlib.Path(__file__).parent
+    here = pathlib.Path(__file__).parent.resolve()
     # The webassets_dcor.yml file is already present in the public/base/css
     # directory (https://github.com/ckan/ckan/pull/6817).
     base_css = here.parent / "assets_theme"

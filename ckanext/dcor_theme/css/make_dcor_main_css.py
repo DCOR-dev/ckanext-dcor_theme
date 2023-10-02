@@ -20,6 +20,9 @@ color_map = {
     "#30778d": "#3366ac",  # a.tag hover
     "#235767": "#264c82",  # a.tag hover border
     "#3d97b3": "#315484",  # a.tag hover shadow
+    "#1b5b6f": "#1B2E6F",  # a hover
+    "#1a5668": "#1A3168",  # a hover border
+    "#185062": "#181A62",  # a active
 }
 
 

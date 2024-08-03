@@ -46,3 +46,5 @@ ckanext/dcor_theme/public/favicon.ico
 
 .idea
 .vagrant
+
+_version.py

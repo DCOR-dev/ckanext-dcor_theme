@@ -7,8 +7,8 @@ from .cli import get_commands
 
 
 class DCORThemePlugin(p.SingletonPlugin):
-    p.implements(p.IBlueprint)
-    p.implements(p.IClick)
+    p.implements(p.IBlueprint, inherit=True)
+    p.implements(p.IClick, inherit=True)
     p.implements(p.IConfigurer, inherit=True)
 
     # IBlueprint

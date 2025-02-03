@@ -5,7 +5,7 @@ set -e
 
 EXTENSION_NAME="ckanext-dcor_theme"  # Change this to your extension's name
 CKAN_CONTAINER="${EXTENSION_NAME}-dcor-test-1"
-EXTENSION_PATH="/srv/app/src_extensions/${EXTENSION_NAME}"
+EXTENSION_PATH="/srv/app/src_extensions"
 
 echo "Creating a virtual environment inside the CKAN container..."
 docker exec ${CKAN_CONTAINER} bash -c "

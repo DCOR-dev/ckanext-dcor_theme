@@ -8,7 +8,8 @@ volumes:
   minio_data:
 
 services:
-  dcor-ckan-dev:
+  dcor-test:
+    # Use image from Raghava's dockerHub
     image: raghavaalajangi95/dcor-ckan-docker-ckan:latest
     env_file:
       - .env
@@ -17,13 +18,14 @@ services:
       - solr
       - redis
       - minio
-    # This is defined as a docker resource in `dcor_control`
+    # hostname is defined as a docker resource in `dcor_control`
     hostname: dcor-dev-docker
     ports:
       - "0.0.0.0:${CKAN_PORT_HOST}:5000"
     volumes:
       - ckan_storage:/var/lib/ckan
-      - ./src:/srv/app/src_extensions
+      # Mount current working dir as src_extensions dir within the container
+      - ./:/srv/app/src_extensions
       - pip_cache:/root/.cache/pip
       - site_packages:/usr/lib/python3.10/site-packages
       - vscode_server:/root/.vscode-server
@@ -38,6 +40,7 @@ services:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:8800"]
 
   db:
+    # Use image from Raghava's dockerHub
     image: raghavaalajangi95/dcor-ckan-docker-postgresql:latest
     environment:
       - POSTGRES_USER

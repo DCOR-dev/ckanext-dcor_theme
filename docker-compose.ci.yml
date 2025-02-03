@@ -38,8 +38,7 @@ services:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:8800"]
 
   db:
-    build:
-      context: raghavaalajangi95/dcor-ckan-docker-postgresql:latest
+    image: raghavaalajangi95/dcor-ckan-docker-postgresql:latest
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD

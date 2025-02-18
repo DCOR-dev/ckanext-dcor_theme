@@ -22,10 +22,12 @@ services:
     hostname: dcor-dev-docker
     ports:
       - "0.0.0.0:${CKAN_PORT_HOST}:5000"
-    user: root
+    user: root # This will avoid permission errors
     volumes:
       - ckan_storage:/var/lib/ckan
-      # Mount current working dir as src_extensions dir within the container
+      # Map current GitHub runner working dir as src_extensions dir within 
+      # the container (this will allow us to access the ckanext-dcor_theme 
+      # directly inside src_extensions)
       - ./:/srv/app/src_extensions
       - pip_cache:/root/.cache/pip
       - site_packages:/usr/lib/python3.10/site-packages

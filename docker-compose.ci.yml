@@ -22,6 +22,7 @@ services:
     hostname: dcor-dev-docker
     ports:
       - "0.0.0.0:${CKAN_PORT_HOST}:5000"
+    user: root
     volumes:
       - ckan_storage:/var/lib/ckan
       # Mount current working dir as src_extensions dir within the container

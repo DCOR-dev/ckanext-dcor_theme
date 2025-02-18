@@ -8,7 +8,7 @@ CKAN_CONTAINER="${EXTENSION_NAME}-dcor-test-1"
 EXTENSION_PATH="/srv/app/src_extensions"
 
 echo "Creating a virtual environment inside the CKAN container..."
-docker exec ${CKAN_CONTAINER} bash -c "
+docker exec -u ckan ${CKAN_CONTAINER} bash -c "
   cd ${EXTENSION_PATH};
   python3 -m venv --system-site-packages venv;
   source venv/bin/activate;

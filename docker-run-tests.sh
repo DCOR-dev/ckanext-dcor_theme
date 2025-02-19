@@ -27,17 +27,14 @@ docker exec -u root ${CKAN_CONTAINER} bash -c "
   chown -R ckan:ckan-sys ${EXTENSION_PATH}/venv
 "
 
-# Run tests as a ckan user
+# Run tests on GitHub runner where container gets permissions from.
 echo "Running tests in the virtual environment..."
-docker exec -u ckan ${CKAN_CONTAINER} bash -c "
+docker exec ${CKAN_CONTAINER} bash -c "
   cd ${EXTENSION_PATH};
   source venv/bin/activate;
 
   # Run coverage
   coverage run --source=ckanext.dcor_theme --omit=*tests* -m pytest -p no:warnings ckanext;
-
-  # Change ownership of coverage data before generating the XML report
-  chown -R ckan:ckan-sys ${EXTENSION_PATH}/.coverage
   
   # Generate the XML report
   coverage xml

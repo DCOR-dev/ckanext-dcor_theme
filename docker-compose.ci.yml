@@ -12,7 +12,7 @@ services:
     # Use image from Raghava's dockerHub
     image: raghavaalajangi95/dcor-ckan-docker-ckan:latest
     env_file:
-      - .env
+      - docker-env.ci
     links:
       - db
       - solr

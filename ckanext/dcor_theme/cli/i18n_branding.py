@@ -1,4 +1,5 @@
 from collections import OrderedDict
+import logging
 import os
 import pathlib
 import pkg_resources
@@ -10,6 +11,8 @@ import babel.messages.pofile
 import ckan
 import click
 
+
+logger = logging.getLogger(__name__)
 
 branding = OrderedDict()
 branding["group"] = "collection"
@@ -82,7 +85,12 @@ def dcor_theme_i18n_branding():
     time.sleep(1)
     sjs = pathlib.Path(
         pkg_resources.resource_filename("ckan", "public/base/i18n/en_GB.js"))
-    shutil.copy(str(sjs), str(sjs.with_name("en_US.js")))
+    if sjs.exists():
+        shutil.copy(str(sjs), str(sjs.with_name("en_US.js")))
+    else:
+        logger.error(f"Could not find '{sjs}'. If you are on CKAN 2.11, "
+                     f"please read the migration notes, understand what "
+                     f"happens and make the necessary changes here.")
 
     print("Make sure to set 'ckan.locale' and 'ckan.locales_offered' to "
           + "'en_US' in your CKAN config.")

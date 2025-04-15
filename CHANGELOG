@@ -1,4 +1,6 @@
 0.8.3
+ - fix: properly find main.css location using `pkg_resources`
+ - fix: ignore missing "en_GB.js" file during i18n branding
  - enh: implement docker based testing
 0.8.2
  - setup: fix ckanext namespace

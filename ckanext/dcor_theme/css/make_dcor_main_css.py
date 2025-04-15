@@ -1,9 +1,10 @@
 """Map CKAN default colors to DCOR colors and generate dcor_theme_colors.css"""
+import pkg_resources
 import pathlib
 
 #: Path to CKAN's main.css
 ckan_css_path = pathlib.Path(
-    "/usr/lib/ckan/default/src/ckan/ckan/public/base/css/main.css")
+    pkg_resources.resource_filename("ckan", "public/base/css/main.css"))
 
 #: Dictionary mapping default colors to DCOR colors
 color_map = {

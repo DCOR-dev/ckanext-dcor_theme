@@ -1,4 +1,5 @@
 0.8.3
+ - ci: update CI workflow and remove deprecated files
  - fix: properly find main.css location using `pkg_resources`
  - fix: ignore missing "en_GB.js" file during i18n branding
  - enh: implement docker based testing

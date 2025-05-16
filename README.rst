@@ -52,17 +52,9 @@ be tested with pytest:
 
     pytest ckanext
 
-Testing can also be done via vagrant in a virtualmachine using the
-`dcor-test <https://app.vagrantup.com/paulmueller/boxes/dcor-test/>` image.
-Make sure that `vagrant` and `virtualbox` are installed and run the
-following commands in the root of this repository:
-
-::
-
-    # Setup virtual machine using `Vagrantfile`
-    vagrant up
-    # Run the tests
-    vagrant ssh -- sudo bash /testing/vagrant-run-tests.sh
+Testing is implemented via GitHub Actions. You may also set up a local
+docker container with CKAN and MinIO. Take a look at the GitHub Actions
+workflow for more information.
 
 
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/ckanext.dcor_theme.svg

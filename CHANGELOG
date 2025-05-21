@@ -1,6 +1,7 @@
 0.11.3
  - fix: i18n branding not working when ckan installed as package
  - fix: remove zombie cli.py from repository
+ - ref: remove i18n copying of javascript translations (they seem unused)
 0.11.2
  - ci: fully migrate CI workflow to docker
 0.11.1

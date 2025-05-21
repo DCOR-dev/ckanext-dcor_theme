@@ -2,9 +2,7 @@ from collections import OrderedDict
 import logging
 import pathlib
 import pkg_resources
-import shutil
 import subprocess
-import time
 
 import babel.messages.pofile
 import click
@@ -86,19 +84,6 @@ def dcor_theme_i18n_branding():
         shell=True)
 
     logger.info(f"Created MO file: {dest_mo}")
-
-    # For some reason we also need this .js file, and it has to be older
-    # than the .po file, otherwise CKAN will try to generate it, which
-    # may fail due to file access restrictions.
-    time.sleep(1)
-    sjs = pathlib.Path(
-        pkg_resources.resource_filename("ckan", "public/base/i18n/en_GB.js"))
-    if sjs.exists():
-        shutil.copy(str(sjs), str(sjs.with_name("en_US.js")))
-    else:
-        logger.error(f"Could not find '{sjs}'. If you are on CKAN 2.11, "
-                     f"please read the migration notes, understand what "
-                     f"happens and make the necessary changes here.")
 
     print("Make sure to set 'ckan.locale' and 'ckan.locales_offered' to "
           + "'en_US' in your CKAN config.")

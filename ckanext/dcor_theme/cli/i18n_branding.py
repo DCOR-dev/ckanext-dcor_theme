@@ -1,6 +1,5 @@
 from collections import OrderedDict
 import logging
-import os
 import pathlib
 import pkg_resources
 import shutil
@@ -8,7 +7,6 @@ import subprocess
 import time
 
 import babel.messages.pofile
-import ckan
 import click
 
 
@@ -67,19 +65,29 @@ def dcor_theme_i18n_branding():
         data = fd.readlines()
     data.insert(10, b'"Plural-Forms: nplurals=2; plural=(n != 1);\\n"\n')
     with dest.open("wb") as fd:
-        data = fd.writelines(data)
+        fd.writelines(data)
 
-    # Readup:
-    # https://docs.ckan.org/en/2.8/maintaining/configuration.html#config-i18n
+    logger.info(f"Created PO file: {dest}")
+
+    dest_mo = dest.with_suffix(".mo")
+
+    # We cannot run setup.py compile_catalog, because we have no setup.py
+    # The arguments for this call I extracted from ckan's setup.cfg.
 
     # generate custom .po file
-    cpath = pathlib.Path(ckan.__file__).parent.parent
-    os.chdir(str(cpath))
     subprocess.check_output(
-        "python setup.py compile_catalog --locale en_US --use-fuzzy",
+        f"pybabel compile "
+        f"--domain=ckan "
+        f"--directory={dest.parent} "
+        f"--input-file={dest} "
+        f"--output-file={dest_mo} "
+        f"--locale=en_US "
+        f"--use-fuzzy ",
         shell=True)
 
-    # For some reason we also need this .js file and it has to be older
+    logger.info(f"Created MO file: {dest_mo}")
+
+    # For some reason we also need this .js file, and it has to be older
     # than the .po file, otherwise CKAN will try to generate it, which
     # may fail due to file access restrictions.
     time.sleep(1)

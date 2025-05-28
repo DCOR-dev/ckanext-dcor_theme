@@ -1,4 +1,5 @@
-0.11.3
+0.12.0
+ - integration with DCOR version bump for CKAN 2.11.3
  - fix: i18n branding not working when ckan installed as package
  - fix: remove zombie cli.py from repository
  - ref: remove i18n copying of javascript translations (they seem unused)

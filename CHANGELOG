@@ -1,3 +1,5 @@
+0.12.1
+ - enh: add about text (#5)
 0.12.0
  - integration with DCOR version bump for CKAN 2.11.3
  - fix: i18n branding not working when ckan installed as package

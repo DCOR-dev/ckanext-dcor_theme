@@ -1,4 +1,5 @@
 0.12.1
+ - enh: add site_title to welcome page
  - enh: add about text (#5)
 0.12.0
  - integration with DCOR version bump for CKAN 2.11.3

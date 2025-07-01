@@ -1,3 +1,5 @@
+1.0.0
+ - declare first stable release
 0.12.1
  - enh: add site_title to welcome page
  - enh: add about text (#5)

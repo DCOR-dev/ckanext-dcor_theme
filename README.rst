@@ -22,6 +22,11 @@ The CKAN theme of DCOR. What this plugin does:
 
     ckan dcor-theme-main-css-branding
 
+- patch CKAN templates with minor changes that would be too complicated to
+  implement with jinja templating::
+
+    ckan dcor-patch-ckan-templates
+
 
 Installation
 ------------

@@ -36,6 +36,10 @@ def patch_wider_resource_listing():
          f'<a {st} href="'),
         ('<a class="flex-fill" href="',
          f'<a class="flex-fill" {st} href="'),
+        # remove d-flex which breaks the word-wrap hack
+        ('<li class="nav-item d-flex justify-content-between position-relative">',  # noqa: E501
+         '<li class="nav-item justify-content-between position-relative">'
+         ),
     ]:
         data_res = data_res.replace(old, new)
     path_template_res.write_text(data_res)

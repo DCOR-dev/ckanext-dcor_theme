@@ -11,6 +11,14 @@ import click
 logger = logging.getLogger(__name__)
 
 branding = OrderedDict()
+branding[
+    "<p><strong>Admin:</strong> Can edit group information, as well as manage "
+    "organization members.</p> <p><strong>Member:</strong> Can add/remove "
+    "datasets from groups</p>"] = (
+    "<p><strong>Admin:</strong> Can add and remove datasets, as well as "
+    "manage the collection.</p> <p><strong>Member:</strong> Can only "
+    "view datasets in collections</p>"
+)
 branding["group"] = "collection"
 branding["Group"] = "Collection"
 branding["an organization"] = "a circle"
@@ -19,11 +27,6 @@ branding["An organization"] = "A circle"
 branding["An Organization"] = "A Circle"
 branding["organization"] = "circle"
 branding["Organization"] = "Circle"
-branding[
-    "Can edit group information, as well as manage organization members."] = \
-    "Can add and remove datasets, as well as manage the collection."
-branding["Can add/remove datasets from groups"] = \
-    "Can only view datasets in collection."
 
 preserve = [
     "organization_",

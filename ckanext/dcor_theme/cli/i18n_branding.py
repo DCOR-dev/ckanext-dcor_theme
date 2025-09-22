@@ -19,7 +19,11 @@ branding["An organization"] = "A circle"
 branding["An Organization"] = "A Circle"
 branding["organization"] = "circle"
 branding["Organization"] = "Circle"
-
+branding[
+    "Can edit group information, as well as manage organization members."] = \
+    "Can add and remove datasets, as well as manage the collection."
+branding["Can add/remove datasets from groups"] = \
+    "Can only view datasets in collection."
 
 preserve = [
     "organization_",

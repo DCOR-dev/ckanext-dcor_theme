@@ -17,7 +17,7 @@ branding[
     "datasets from groups</p>"] = (
     "<p><strong>Admin:</strong> Can add and remove datasets, as well as "
     "manage the collection.</p> <p><strong>Member:</strong> Can only "
-    "view datasets in collections</p>"
+    "view datasets in collections.</p>"
 )
 branding["group"] = "collection"
 branding["Group"] = "Collection"

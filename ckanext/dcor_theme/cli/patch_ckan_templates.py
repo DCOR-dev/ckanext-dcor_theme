@@ -28,7 +28,7 @@ def patch_wider_resource_listing():
     data_res_item = path_template_res_item.read_text()
     # This makes the browser force a line-break even inside a word,
     # which means that it breaks long filenames.
-    st = 'style="word-wrap: break-word"'
+    st = 'style="overflow-wrap: break-word"'
     for old, new in [
         # remove the truncate filter for file names
         ("| truncate(50)", ""),
@@ -44,7 +44,7 @@ def patch_wider_resource_listing():
     data_res = path_template_res.read_text()
     # This makes the browser force a line-break even inside a word,
     # which means that it breaks long filenames.
-    st = 'style="word-wrap: break-word"'
+    st = 'style="overflow-wrap: break-word"'
     for old, new in [
         # remove the truncate filter for file names
         ("|truncate(25)", ""),
@@ -53,7 +53,7 @@ def patch_wider_resource_listing():
          f'<a {st} href="'),
         ('<a class="flex-fill" href="',
          f'<a class="flex-fill" {st} href="'),
-        # remove d-flex which breaks the word-wrap hack
+        # remove d-flex which breaks the overflow-wrap hack
         ('<li class="nav-item d-flex justify-content-between position-relative">',  # noqa: E501
          '<li class="nav-item justify-content-between position-relative">'
          ),

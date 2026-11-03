@@ -1,4 +1,6 @@
 1.1.5
+ - fix: DCOR colors were not applied to colors in `rgb()` notation, which
+   CKAN 2.11.7 uses in `main.css` for some colors
  - fix: compatibility with setuptools>=82 (no `pkg_resources`),
    which is shipped with CKAN 2.11.6
 1.1.4

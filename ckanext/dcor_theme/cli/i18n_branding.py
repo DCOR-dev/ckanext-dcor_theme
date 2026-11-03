@@ -1,7 +1,7 @@
 from collections import OrderedDict
+from importlib import resources as importlib_resources
 import logging
 import pathlib
-import pkg_resources
 import subprocess
 
 import babel.messages.pofile
@@ -51,8 +51,8 @@ def replace_branding(msgid):
 
 @click.command()
 def dcor_theme_i18n_branding():
-    src = pathlib.Path(pkg_resources.resource_filename("ckan.i18n",
-                                                       "ckan.pot"))
+    src = pathlib.Path(str(importlib_resources.files("ckan.i18n")
+                           / "ckan.pot"))
     # load file and replace known strings
     with src.open("r", encoding="utf-8") as fd:
         poin = babel.messages.pofile.read_po(fd)

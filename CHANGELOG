@@ -1,3 +1,6 @@
+1.1.5
+ - fix: compatibility with setuptools>=82 (no `pkg_resources`),
+   which is shipped with CKAN 2.11.6
 1.1.4
  - ref: replace "word-wrap" with "overflow-wrap"
  - tests: own the docker image

@@ -1,6 +1,7 @@
 """Map CKAN default colors to DCOR colors and generate dcor_theme_colors.css"""
 from importlib import resources as importlib_resources
 import pathlib
+import re
 
 #: Path to CKAN's main.css
 ckan_css_path = pathlib.Path(str(
@@ -28,6 +29,39 @@ color_map = {
 }
 
 
+#: Regular expression for colors in `rgb(r, g, b)` notation
+RGB_RE = re.compile(r"rgb\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*\)")
+
+
+def replace_colors(css_data):
+    """Replace CKAN default colors with DCOR colors
+
+    Since CKAN 2.11.7, `main.css` contains some colors in `rgb(r, g, b)`
+    notation with floating point values instead of hex notation, e.g.
+    `rgb(25.6, 85.6, 104)` instead of `#1a5668`. These are replaced as
+    well if all channels are within 1 of a color in :const:`color_map`.
+    If several colors match, the closest one is used.
+    """
+    for color in color_map:
+        css_data = css_data.replace(color, color_map[color])
+
+    rgb_map = {tuple(int(color[ii:ii + 2], 16) for ii in (1, 3, 5)): new
+               for color, new in color_map.items()}
+
+    def replace_rgb(match):
+        rgb = [float(value) for value in match.groups()]
+        candidates = []
+        for key, new in rgb_map.items():
+            diffs = [abs(a - b) for a, b in zip(rgb, key)]
+            if max(diffs) <= 1:
+                candidates.append((sum(d ** 2 for d in diffs), new))
+        if candidates:
+            return min(candidates)[1]
+        return match.group(0)
+
+    return RGB_RE.sub(replace_rgb, css_data)
+
+
 def main():
     here = pathlib.Path(__file__).parent.resolve()
     # The webassets_dcor.yml file is already present in the public/base/css
@@ -38,9 +72,7 @@ def main():
     dcor_css_path = base_css / "dcor_main.css"
 
     # replace colors
-    main_css_data = ckan_css_path.read_text()
-    for color in color_map:
-        main_css_data = main_css_data.replace(color, color_map[color])
+    main_css_data = replace_colors(ckan_css_path.read_text())
 
     # add custom css inputs
     for ci in sorted(here.glob("*.css")):

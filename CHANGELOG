@@ -1,3 +1,6 @@
+1.1.6
+ - tests: add tests for the CLI commands, the i18n branding, and the
+   contact, imprint, and privacy pages
 1.1.5
  - fix: DCOR colors were not applied to colors in `rgb()` notation, which
    CKAN 2.11.7 uses in `main.css` for some colors

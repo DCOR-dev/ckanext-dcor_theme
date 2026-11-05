@@ -1,3 +1,6 @@
+1.1.7
+ - tests: relax the DCOR color count in `main.css` for CKAN 2.12
+ - tests: use Redis 7 in CI (CKAN 2.12 requires Redis >= 6)
 1.1.6
  - tests: add tests for the CLI commands, the i18n branding, and the
    contact, imprint, and privacy pages

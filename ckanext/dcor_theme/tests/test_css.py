@@ -36,8 +36,8 @@ def test_replace_colors_ckan_main_css():
             rgb = [float(value) for value in match.groups()]
             assert not all(abs(a - b) <= 1 for a, b in zip(rgb, ref)), \
                 f"{match.group(0)} ({color}) was not replaced"
-    # the DCOR colors are there
-    assert css.count(mdc.color_map["#1a5668"]) >= 9
+    # the DCOR colors are there (9 occurrences in CKAN 2.11, 8 in 2.12)
+    assert css.count(mdc.color_map["#1a5668"]) >= 8
 
 
 def test_rgb_regexp():
